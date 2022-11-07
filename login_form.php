@@ -35,8 +35,13 @@ if (isset($_POST['submit'])) {
          $_SESSION['manager_name'] = $row['name'];
          header('location:manager_page.php');
       }
+      // elseif ($row['user_type'] == 'delivery agent') {
+
+      //    $_SESSION['agent_name'] = $row['name'];
+      //    header('location:agent_page.php');
+      // }
    } else {
-      $error[] = 'incorrect email or password!';
+      $error[] = '<p class="error-msg">Incorrect E-mail or Password!</p>';
    }
 };
 ?>
@@ -49,33 +54,48 @@ if (isset($_POST['submit'])) {
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>login form</title>
-
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="stylesheet.css">
 
 </head>
 
 <body>
-
-   <div class="form-container">
-
-      <form action="" method="post">
-         <h3>login now</h3>
-         <?php
-         if (isset($error)) {
-            foreach ($error as $error) {
-               echo '<span class="error-msg">' . $error . '</span>';
-            };
-         };
-         ?>
-         <input type="email" name="email" required placeholder="enter your email">
-         <input type="password" name="password" required placeholder="enter your password">
-         <input type="submit" name="submit" value="login now" class="form-btn">
-         <p>Don't have an account? <a href="register_form.php">register now</a></p>
-      </form>
-
+<div class="form-bg">
+    <div class="form-container">
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+               <form class="form-horizontal" action="" method="post">
+               <?php
+                  if (isset($error)) {
+                     foreach ($error as $error) {
+                        echo '<span class="error-msg">' . $error . '</span>';
+                     };
+                  };
+               ?>
+                    <span class="heading">Welcome to <img src="Screenshot (58).png" alt="" width=" 70%"></span>
+                    <h3>Log In Here</h3>
+                    <div class="form-group">
+                        <input type="email" class="form-control" name="email" id="inputEmail3" required placeholder="Email">
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <div class="form-group help">
+                        <input type="password" class="form-control" name="password" required id="inputPassword3" placeholder="Password">
+                        <i class="fa fa-lock"></i>
+                    </div>
+                        
+                    <div class="social-login">
+                    <input type="submit" name="submit" value=" Log In " class="form-btn btn btn-default">
+                        <p>Don't have an account? <a href="register_form.php"> Register now!</a></p>
+                    
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
    </div>
-
+   <script src="https://kit.fontawesome.com/fcc5188dd3.js" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
 
 </html>
