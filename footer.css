@@ -9,8 +9,12 @@ footer {
     left: 0;
     right: 0;
     background: #111;
-    height: auto;
-    width: 100vw;
+    z-index: -1;
+    position:sticky;
+    bottom: 0px;
+    margin: 500px 0 0 0;
+    width: 100%;
+    height: 100px;
 
     padding-top: 40px;
     color: #fff;
